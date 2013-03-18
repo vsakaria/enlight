@@ -1,0 +1,22 @@
+<h1>Checkout todays lights</h1>
+
+<h2><%= @user.name %></h2>
+
+<% @lights.each do |light| %>
+	<h3> <%=@user.name%> lighted </h3>
+	<h3> <%= light.topic %> </h3>
+	<h4> <%= light.message %> </h4>
+<%end%>
+
+<h2>Who's on light</h2>
+<% @people.each do |person| %>
+	<h3> <%= person.name %> </h3>
+	<h4> <%= person.interests %> </h4>
+<%end%>
+
+<h2>top 10 lights</h2>
+
+<% @topten.each do |topten| %>
+	<h3> <%= topten.topic %> </h3>
+	<h4> <%= topten.message %> </h4>
+<%end%>

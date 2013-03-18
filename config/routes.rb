@@ -2,7 +2,13 @@ Enlight::Application.routes.draw do
   
   resources :users do
     resources :lights
+    member do
+      get "feed"
+    end
    end 
+
+    root :to => 'users#new'
+
 
 
 
@@ -56,7 +62,7 @@ Enlight::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  #
 
   # See how all your routes lay out with "rake routes"
 

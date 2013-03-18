@@ -17,8 +17,6 @@ class LightsController < ApplicationController
     @user = User.find(params[:user_id])
     @lights = Light.where(:user_id => params[:user_id])
 
-
-   
   end
 
   # GET /lights/new
@@ -45,7 +43,7 @@ class LightsController < ApplicationController
     @light.save!
 
 
-    redirect_to(user_light_path(@user, @light))
+    redirect_to(feed_user_path(@user))
 
   end
 

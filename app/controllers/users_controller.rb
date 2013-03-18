@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    
+
     @users = User.all
     respond_to do |format|
       format.html # index.html.erb
@@ -42,15 +42,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    @user.save
+
+    #Why do I have to pass the USer varaible here? I can't access it.
+    redirect_to(feed_user_path(@user))
+
+
+  #   respond_to do |format|
+  #     if @user.save
+  #       format.html { redirect_to :action => "feed" }
+  #     else
+  #       format.html { render action: "new" }
+  #     end
+  #   end
   end
 
   # PUT /users/1
@@ -79,5 +83,14 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+
+  def feed
+    @user = User.find_by_id(params[:id])
+    @lights = Light.where(:user_id => params[:id])
+    @people = User.all
+
+    @topten = Light.last(10)
+
   end
 end
