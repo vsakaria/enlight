@@ -1,13 +1,23 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Name:</b>
+  <b>Hi</b>
   <%= @user.name %>
 </p>
 
 <p>
   <b>Interests:</b>
   <%= @user.interests %>
+</p>
+
+<p>
+  <b>Lights:</b>
+   <% @user.lights.each do |light| %>
+    <b> <%= light.user.name %> </br>
+    <b> <%= light.topic %> </b> </br>
+    <b> <%= light.message %> </b> </br>
+    <%= link_to 'Delete', user_light_path(light, @user), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  </br>
+  <% end %>
 </p>
 
 

@@ -22,7 +22,7 @@ class LightsController < ApplicationController
   # GET /lights/new
   # GET /lights/new.json
   def new
-    
+
     @user = User.find(params[:user_id])
 
     @light = Light.new
@@ -38,7 +38,7 @@ class LightsController < ApplicationController
 
     #How could I refactor this?
     @user = User.find(params[:user_id])
-    
+
     @light = @user.lights.build(params[:light])
     @light.save!
 
@@ -56,9 +56,7 @@ class LightsController < ApplicationController
 
 
   def destroy
-
-    @light = Light.find(params[:id])
-    @light.destroy
+    @light = Light.find(params[:user_id])
 
   end
 end

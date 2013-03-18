@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -90,7 +91,15 @@ class UsersController < ApplicationController
     @lights = Light.where(:user_id => params[:id])
     @people = User.all
 
+    #Top ten lights without user name
     @topten = Light.last(10)
+
+    #@topten.each do |light|
+      #This is the long way around this
+      # light.class.module_eval { attr_accessor :name }
+      # @topuser = User.find_by_id(light.user_id)
+      # light.name = @topuser.name
+    #end
 
   end
 end
