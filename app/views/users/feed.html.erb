@@ -14,12 +14,13 @@
 	<h4> <%= person.interests %> </h4>
 <%end%>
 
-<h2>top 10 lights</h2>
-
 <% @topten.each do |topten| %>
   <h3> <%= topten.user.name %> </h3>
-	<h3> <%= topten.topic %> </h3>
-	<h4> <%= topten.message %> </h4>
+  <h3> <%= topten.topic %> </h3>
+  <h4> <%= topten.message %> </h4>
 <%end%>
+
+<h2>top 10 lights</h2>
+
 
 <%= link_to 'My Lights', user_path %>
