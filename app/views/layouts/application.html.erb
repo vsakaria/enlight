@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
+
+
 <head>
+ <%= render :partial => 'heading' %>
 
-  <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
-
-  <title>Enlight other through your knowledge!</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body>
+<%= render :partial => 'navigation' %>
 <%= yield %>
 
 </body>

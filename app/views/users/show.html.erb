@@ -14,7 +14,7 @@
     <b> <%= light.user.name %> </br>
     <b> <%= light.topic %> </b> </br>
     <b> <%= light.message %> </b> </br>
-    <%= link_to 'Delete', user_light_path(light, @user), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Delete', user_light_path(@user, light), method: :delete, data: { confirm: 'Are you sure?' } %>
 
   </br>
   <% end %>
@@ -26,3 +26,4 @@
 </br>
 </br>
 <%= link_to 'Enlight', new_user_light_path(@user) %>
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>

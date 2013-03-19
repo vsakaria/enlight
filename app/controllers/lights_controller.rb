@@ -29,10 +29,10 @@ class LightsController < ApplicationController
 
   end
 
-  # GET /lights/1/edit
-  def edit
-    @light = Light.find(params[:id])
-  end
+  # # GET /lights/1/edit
+  # def edit
+  #   @light = Light.find(params[:id])
+  # end
 
   def create
 
@@ -56,7 +56,9 @@ class LightsController < ApplicationController
 
 
   def destroy
-    @light = Light.find(params[:user_id])
+    @light = Light.find(params[:id])
+    @light.destroy
 
+    redirect_to(feed_user_path(params[:user_id]))
   end
 end

@@ -1,13 +1,13 @@
 Enlight::Application.routes.draw do
-  
+
   resources :users do
     resources :lights
     member do
       get "feed"
     end
-   end 
+   end
 
-    root :to => 'users#new'
+    root :to => 'home#home'
 
 
 
