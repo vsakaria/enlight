@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
-   #skip_before_filter :authorise, :only => [:home]
+  skip_before_filter :authorise, :only => [:home]
+
   def home
     @user = User.new
 
