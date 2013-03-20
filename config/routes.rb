@@ -1,13 +1,20 @@
 Enlight::Application.routes.draw do
 
+  get "sign_in" => "home#home", :as => "sign_in"
+
+  get "sign_out" => "sessions#destory", :as => "sign_out"
+
   resources :users do
     resources :lights
     member do
       get "feed"
     end
-   end
 
-    root :to => 'home#home'
+  end
+  resources :sessions
+  root :to => 'home#home'
+
+
 
 
 

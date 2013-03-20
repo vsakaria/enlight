@@ -17,6 +17,12 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </p>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
   <p>
     <%= f.label :password %><br />
     <%= f.password_field :password %>
@@ -27,8 +33,28 @@
   </p>
 
 
+  <p>
+    <%= f.label :interests %><br />
+    <%= f.text_field :interests %>
+  </p>
+
+
   <p class="button"><%= f.submit %></p>
 
+<% end %>
+
+<h1>Log in</h1>
+
+<%= form_tag sessions_path do %>
+  <p>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email] %>
+  </p>
+  <p>
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </p>
+  <p class="button"><%= submit_tag "Log in" %></p>
 <% end %>
 
 

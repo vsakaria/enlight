@@ -1,5 +1,8 @@
 
 class User < ActiveRecord::Base
+
+  has_many :lights
+
   attr_accessible :interests, :name
 
   attr_accessible :email, :password, :password_confirmation
@@ -8,12 +11,22 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
-  has_many :lights
+
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
+
+  def self.authenticate(email, password)
+
+    @user = User.find_by_email(email)
+      if @user &&  @user.password_hash == BCrypt::Engine.hash_secret(password, @user.password_salt)
+        @user
+      else
+        nil
+      end
+  end
 
   def encrypt_password
     if password.present?

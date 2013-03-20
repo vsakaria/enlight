@@ -3,6 +3,7 @@
 class LightsController < ApplicationController
   # GET /lights
   # GET /lights.json
+
   def index
 
     @lights = Light.all

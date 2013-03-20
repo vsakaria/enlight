@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+
+  #skip_before_filter :authorise, :only => [:create]
+
   def index
 
     @users = User.all
@@ -24,21 +27,22 @@ class UsersController < ApplicationController
 
   # GET /users/new
   # GET /users/new.json
-  def new
+  # def new
+  #   debugger
+  #   @user = User.new(params[:user])
 
-    @user = User.new(params[:user])
-    if @user.save
-      redirect_to feed_user_path(@user)
-    else
-      render "new"
-    end
+  #   if @user.save
+  #     redirect_to feed_user_path(@user)
+  #   else
+  #     render "new"
+  #   end
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @user }
-    end
+  #   respond_to do |format|
+  #     format.html # new.html.erb
+  #     format.json { render json: @user }
+  #   end
 
-  end
+  # end
 
   # GET /users/1/edit
   def edit
@@ -52,17 +56,7 @@ class UsersController < ApplicationController
 
     @user.save
 
-    #Why do I have to pass the USer varaible here? I can't access it.
     redirect_to(feed_user_path(@user))
-
-
-  #   respond_to do |format|
-  #     if @user.save
-  #       format.html { redirect_to :action => "feed" }
-  #     else
-  #       format.html { render action: "new" }
-  #     end
-  #   end
   end
 
   # PUT /users/1
@@ -100,6 +94,7 @@ class UsersController < ApplicationController
 
     #Top ten lights without user name
     @topten = Light.last(10)
+
 
     #@topten.each do |light|
       #This is the long way around this
