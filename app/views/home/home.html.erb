@@ -1,5 +1,37 @@
-<H1>Welcome to Enlight</h1>
 
+<div class = "main_page_content">
+
+<h1 class="title">
+  Share your knowledge with <span class="en title">En</span>light
+</h1>
+
+<p class="sub_text">
+  Enlight is a Twitter styled app that allows you to share things you have learnt by creating <span class="en">lights!</span>
+</p>
+
+<div>
+  <img src="learning1.jpg">
+</div>
+
+<div id="log_in">
+
+<p>Log in</p>
+
+<%= form_tag sessions_path do %>
+  <p>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email], :size => "30x20"  %>
+  </p>
+  <p>
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password, :size => "70x20"  %>
+  </p>
+  <p class="button"><%= submit_tag "Log in" %></p>
+<% end %>
+
+</div>
+
+<div id="sign_up">
 <p>Sign Up</p>
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
@@ -42,21 +74,7 @@
   <p class="button"><%= f.submit %></p>
 
 <% end %>
+</div>
 
-<h1>Log in</h1>
-
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p class="button"><%= submit_tag "Log in" %></p>
-<% end %>
-
-
-<%= link_to 'about' %>
+</div>
 
